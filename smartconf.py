@@ -69,21 +69,3 @@ class SmartConf():
 
         with open(saveas if saveas else self.file_path, 'w') as f:
             self.cf.write(f)
-
-
-if __name__ == '__main__':
-    s = SmartConf()
-    cd = s.load('a.ini')
-    print(cd.hostconf.name)
-    print(cd.baseconf.auth)
-    cd.hostconf.name = 'ubuntu'
-    cd.aa = dict()
-    cd.aa['bb'] = 'cc'
-    cd.aa['xx'] = 'yy'
-    print('-'*20, cd)
-    cd.foo = dict()
-    cd.foo['foo'] = 'bar'
-    cd.pop('foo')
-    cd.aa.pop('xx')
-    print(cd)
-    s.save()
